@@ -20,7 +20,7 @@ const addWorker = async (req, res, next) => {
 
     [err, savedWorker] = await to(Worker.add(newWorker));
     if (err) return next(err);
-    return ReS(res, savedWorker, 200, false, "Worker successfully added");
+    return ReS(res, savedWorker, 200, false, "Worker was successfully added");
 }
 
 
@@ -29,7 +29,7 @@ const getWorkersForTask = async (req, res, next)=>{
 
     [err, check_task] = await to(Task.getTask(req.params.task_id));
     if(err) return next(err);
-    if(!check_task) return ReE(res,true,"Task Does not exists", 404);
+    if(!check_task) return ReE(res,true,"Task does not exists", 404);
 
     [err,workers] = await to (Worker.getWorkersForTaskSkills(check_task.skills));
     if (err) return next(err);
@@ -43,11 +43,11 @@ const addWorkerToTask = async (req, res, next)=>{
 
     [err, check_task] = await to(Task.getTask(req.params.task_id));
     if(err) return next(err);
-    if(!check_task) return ReE(res,true,"Task Does not exists", 404);
+    if(!check_task) return ReE(res,true,"Task does not exists", 404);
 
     [err, check_worker] = await to(Worker.getWorker(req.body.worker_id));
     if(err) return next(err);
-    if(!check_worker) return ReE(res,true,"Worker Does not exists", 404);
+    if(!check_worker) return ReE(res,true,"Worker does not exists", 404);
 
     let completion_time = new Date();
     completion_time.setSeconds(completion_time.getSeconds()+check_task.time);
