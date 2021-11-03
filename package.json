@@ -24,7 +24,7 @@
     "mongodb": "^3.2.6",
     "parse-error": "^0.2.0",
     "request": "^2.88.0",
-    "validator": "^10.11.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"
